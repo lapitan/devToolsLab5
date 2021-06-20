@@ -33,6 +33,7 @@ namespace TestSystem
             TestSystem tests = new TestSystem(filePath.Text, exePath.Text);
             Queue<KeyValuePair<Test, bool>> result = tests.start();
             string[] output = new string[tests.size];
+            string shortinf = "";
             int i = 0;
             while (result.Count > 0)
             {
@@ -51,11 +52,13 @@ namespace TestSystem
                 {
                     comp = "WA";
                 }
-                string pushToOut = testName + " " + input + " " + answer + " " + trueAnswer + " " + comp;               
+                string pushToOut = testName + " " + input + " " + answer + " " + trueAnswer + " " + comp;
+                shortinf += testName + " " + comp + "\n";
                 output[i] = pushToOut;
                 i++;                
             }
-            File.WriteAllLines(@"C:\Users\Xiaomi\Desktop\testsss.txt", output);            
+            File.WriteAllLines(@"C:\Users\Xiaomi\Desktop\testsss.txt", output);
+            resultBox.Text = shortinf;
         }
     }
 }
