@@ -27,9 +27,12 @@ namespace TestSystem
         /// <param name="e">The event args.</param>
         [SuppressMessage("Microsoft.Globalization", "CA1300:SpecifyMessageBoxOptions", Justification = "Sample code")]
         [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Default event handler naming pattern")]
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
+
+            TestComboBox.Items.Clear();
+            resultBox.Clear();
+            TestInfo.Clear();
             TestSystem tests = new TestSystem(filePath.Text, exePath.Text);
             Queue<KeyValuePair<Test, bool>> result = tests.start();
             string[] output = new string[tests.size];
@@ -55,7 +58,8 @@ namespace TestSystem
                 string pushToOut = testName + " " + input + " " + answer + " " + trueAnswer + " " + comp;
                 shortinf += testName + " " + comp + "\n";
                 output[i] = pushToOut;
-                i++;                
+                i++;
+                TestComboBox.Items.Add(result.Dequeue());
             }
             File.WriteAllLines(@"C:\Users\Xiaomi\Desktop\testsss.txt", output);
             resultBox.Text = shortinf;
@@ -63,7 +67,12 @@ namespace TestSystem
 
         private void TestComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (TestComboBox.Items.Count != 0)
+            {
+                var curItem = (KeyValuePair<Test, bool>)TestComboBox.SelectedItem;
+                string testInfo = "TestName: " + curItem.Key.testName + "\nInput: " + curItem.Key.input + "\nTrueAnswer: " + curItem.Key.answer + "\nAnswer: " + curItem.Key.trueAnswer;
+                TestInfo.Text = testInfo;
+            }
         }
 
         private void TestInfo_TextChanged(object sender, TextChangedEventArgs e)
