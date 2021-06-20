@@ -18,6 +18,8 @@
             <TextBox x:Name="exePath" Height="23" TextWrapping="Wrap" Margin="25,0,25,0"/>
             <Button Content="Launch Tests"  Margin="25,10,25,0" Click="Button_Click"/>
             <TextBox x:Name="resultBox" Height="130" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="25,15,25,15"/>
+            <ComboBox x:Name="TestComboBox" Height="25"  Margin="25,0,25,0" SelectionChanged="TestComboBox_SelectionChanged"/>
+            <TextBox x:Name="TestInfo" Height="130" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="25,15,25,15" TextChanged="TestInfo_TextChanged"/>
         </StackPanel>
     </Grid>
 </UserControl>
