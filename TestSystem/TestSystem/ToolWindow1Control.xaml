@@ -11,8 +11,12 @@
              Name="MyToolWindow">
     <Grid>
         <StackPanel Orientation="Vertical">
-            <TextBlock Margin="10" HorizontalAlignment="Center">ToolWindow1</TextBlock>
-            <Button Content="Click me!" Click="button1_Click" Width="120" Height="80" Name="button1"/>
+            <TextBlock Margin="10" HorizontalAlignment="Center" Text="Тестики"/>
+            <Label Content="Напишите путь до тестов" Margin="25,0,0,0"/>
+            <TextBox x:Name="filePath" Height="23" TextWrapping="Wrap" Margin="25,0,25,0"/>
+            <Label Content="Напишите путь до exe файла" Margin="25,0,0,0"/>
+            <TextBox x:Name="exePath" Height="23" TextWrapping="Wrap" Margin="25,0,25,0"/>
+            <Button Content="Launch Tests"  Margin="25,10,25,0" Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>
