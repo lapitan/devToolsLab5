@@ -60,5 +60,15 @@ namespace TestSystem
             File.WriteAllLines(@"C:\Users\Xiaomi\Desktop\testsss.txt", output);
             resultBox.Text = shortinf;
         }
+
+        private void TestComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TestInfo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
